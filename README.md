@@ -1,38 +1,51 @@
- <div align="center">
-  <img src="./ascii-portrait.svg" width="300" alt="ASCII portrait" />
-  
-  # Hey, I'm Onur! 👋
-  **Computer Engineering Student**
-  
-  İzmir, Türkiye
-  
-  *Building, learning, and experimenting with code.*
-</div>
-
----
-
-### 👨‍💻 About Me
-
-- 🎓 Computer Engineering student at İzmir Institute of Technology (İYTE).
-- 💻 Interested in software development, algorithms, and problem solving.
-- 🤖 Exploring artificial intelligence and automation.
-- 🌱 Always learning and building new things.
-
-### 🛠️ Technologies
-
-- **Languages:** Java, Python
-- **Interests:** Object-Oriented Programming, Algorithms, AI, Software Engineering
-
-### 📊 GitHub Activity
-
 <div align="center">
-  <img src="./stats.svg" width="100%" alt="GitHub statistics" />
-  <br />
-  <img src="./contrib-heatmap.svg" width="100%" alt="GitHub contribution heatmap" />
-</div>
 
----
+<!-- ASCII portrait + statistics side by side -->
 
-<div align="center">
-  *Thanks for stopping by!*
+<table>
+<tr>
+<td valign="top">
+<img src="./ascii-portrait.svg" width="420" alt="Onur's ASCII portrait" />
+</td>
+<td valign="top">
+<img src="./stats.svg" width="420" alt="Onur's GitHub statistics" />
+</td>
+</tr>
+</table>
+
+<br />
+
+<h3><code>onur@github ~ $ ./contributions.sh</code></h3>
+
+<!-- Animated contribution graph -->
+
+<img src="./contrib-heatmap.svg" width="860" alt="Onur's GitHub contribution graph" />
+
+<br />
+<br />
+
+<h3><code>onur@github ~ $ cat about.txt</code></h3>
+
+<p><b>Computer Engineering Student · Developer · AI Enthusiast</b></p>
+
+<p>
+Computer Engineering student at İzmir Institute of Technology (İYTE).<br />
+Interested in software development, algorithms, artificial intelligence and building useful projects.
+</p>
+
+<br />
+
+<h3><code>onur@github ~ $ ls skills/</code></h3>
+
+<p>
+<b>Languages:</b> Java · Python<br />
+<b>Interests:</b> Artificial Intelligence · Algorithms · Software Engineering · Automation
+</p>
+
+<br />
+
+<h3><code>onur@github ~ $ echo "Thanks for visiting!"</code></h3>
+
+<p><i>Always learning. Always building.</i></p>
+
 </div>
