@@ -22,33 +22,69 @@ URL = f"https://github.com/users/{USERNAME}/contributions"
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "contributions.json")
 
 
-def fetch_days():
-    resp = requests.get(URL, headers={"User-Agent": "profile-readme-bot/1.0"}, timeout=30)
-    resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
 
+def fetch_days():
+    resp = requests.get(
+        URL,
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=30
+    )
+    resp.raise_for_status()
+
+    soup = BeautifulSoup(resp.text, "html.parser")
     cells = soup.select("td.ContributionCalendar-day")
+
     if not cells:
-        print("no calendar cells found -- github markup may have changed", file=sys.stderr)
+        print("No calendar cells found.", file=sys.stderr)
         sys.exit(1)
 
     days = []
+
     for td in cells:
         date = td.get("data-date")
+
         if not date:
             continue
+
+        # GitHub may expose the contribution description
+        # through aria-label or a separate tooltip element.
+        texts = [td.get("aria-label", "")]
+
         td_id = td.get("id")
-        tooltip_el = soup.find("tool-tip", attrs={"for": td_id}) if td_id else None
-        text = tooltip_el.get_text(strip=True) if tooltip_el else ""
+        if td_id:
+            tooltip = soup.find("tool-tip", attrs={"for": td_id})
+            if tooltip:
+                texts.append(tooltip.get_text(" ", strip=True))
+
+        text = " ".join(texts)
+
         if re.search(r"no contributions", text, re.I):
             count = 0
         else:
-            m = re.match(r"(\d+)", text)
-            count = int(m.group(1)) if m else 0
-        days.append({"date": date, "count": count, "level": int(td.get("data-level") or 0)})
+            match = re.search(
+                r"(\d[\d,]*)\s+contributions?",
+                text,
+                re.I
+            )
+
+            if not match:
+                print(
+                    f"Could not read contribution count for {date}: {text!r}",
+                    file=sys.stderr
+                )
+                sys.exit(1)
+
+            count = int(match.group(1).replace(",", ""))
+
+        days.append({
+            "date": date,
+            "count": count,
+            "level": int(td.get("data-level") or 0)
+        })
 
     days.sort(key=lambda d: d["date"])
     return days
+
 
 
 def compute_current_streak(days):
