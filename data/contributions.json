@@ -1,22 +1,22 @@
 {
   "username": "Onurrozkul",
-  "generated_at": "2026-11-20T15:36:46Z",
+  "generated_at": "2026-11-21T14:46:42Z",
   "range": {
     "start": "2025-11-16",
+    "end": "2026-11-21"
+  },
+  "total_contributions": 127,
+  "active_days": 48,
+  "avg_per_active_day": 2.6,
+  "current_streak": {
+    "length": 17,
+    "start": "2026-11-04",
     "end": "2026-11-20"
   },
-  "total_contributions": 126,
-  "active_days": 47,
-  "avg_per_active_day": 2.7,
-  "current_streak": {
-    "length": 16,
-    "start": "2026-11-04",
-    "end": "2026-11-19"
-  },
   "longest_streak": {
-    "length": 16,
+    "length": 17,
     "start": "2026-11-04",
-    "end": "2026-11-19"
+    "end": "2026-11-20"
   },
   "best_day": {
     "date": "2026-08-18",
@@ -73,7 +73,7 @@
     },
     {
       "month": "2026-11",
-      "total": 34
+      "total": 35
     }
   ],
   "days": [
@@ -1924,6 +1924,11 @@
     },
     {
       "date": "2026-11-20",
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-11-21",
       "count": 0,
       "level": 0
     }
